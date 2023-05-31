@@ -29,9 +29,7 @@ let prom5 = new Promise((resolve, reject) => {
         resolve("e")
     },5000)
 })
-promises.push(prom5);
-let result = Promise.any([prom1, prom2, prom3, prom4, prom5])
-
-result.then((data) => {
-    info(data);
+Promise.any(window.promises).then((result) => {
+    const div = document.getElementById("output");
+    div.textContent = result;
 })
