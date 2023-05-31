@@ -1,4 +1,4 @@
-indow.promises = [];
+window.promises = [];
 
 for(let i = 0; i < 5; i++){
     const rTime = Math.floor(Math.random()*5)+1;
