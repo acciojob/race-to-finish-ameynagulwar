@@ -1,34 +1,19 @@
-window.promises = [];
+indow.promises = [];
 
-let prom1 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve("a")
-    },1000)
-})
-promises.push(prom1);
-let prom2 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve("b")
-    },2000)
-})
-promises.push(prom2);
-let prom3 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve("c")
-    },4000)
-})
-promises.push(prom3);
-let prom4 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve("d")
-    },500)
-})
-promises.push(prom4);
-let prom5 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve("e")
-    },5000)
-})
+for(let i = 0; i < 5; i++){
+    const rTime = Math.floor(Math.random()*5)+1;
+    const promise = new Promise((resovle) => {
+        setTimeout(()=> {
+            resovle(`promise ${i+1} resovled after ${rTime} sec`);
+        }, rTime*1000);
+    })
+    window.promises.push(promise);
+}
+
+
+
+
+
 Promise.any(window.promises).then((result) => {
     const div = document.getElementById("output");
     div.textContent = result;
